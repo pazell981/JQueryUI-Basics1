@@ -2,28 +2,24 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Basics 2</title>
-		<meta name="description" content="JQUERY Assignment -07/01/14 - Advanced 2">
+		<title>Basics 1</title>
+		<meta name="description" content="JQuery UI Assignment - 07/01/14 - Basics 1">
 		<link rel="stylesheet" type="text/css" href="css.css">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 		<script>
 			$(document).ready(function(){
 				var $img=["sort1.bmp", "sort2.bmp", "sort3.bmp", "sort4.bmp", "sort5.bmp"];
-				for ($i=0; $i<5; $i++){
-					var $j= $img.length;
-					var $k = Math.floor(Math.random()*$j);
-					console.log($k)
-					$('#img' + $i).attr('src', $img[$k]);
-					if($img.length===$k){
-						$img.pop();
-					} else {
-						var $temp = $img[$k];
-						$img[$k] = $img[$img.length];
-						$img[$img.length]=$temp;
-						$img.pop();
-					};
-				};
+				for (var $i=0; $i<5; $i++){
+					var $rand = Math.floor(Math.random()*5);
+					var $temp = $img[$i];
+					$img[$i] = $img[$rand];
+					$img[$rand] = $temp;
+					console.log($img);
+				};  //end of for loop
+				for (var $i=0; $i<5; $i++){
+					$('#img'+$i).attr('src',$img[$i]);
+				};  //end of image attr loop
 			});
 			$(function() {
     			$( "#sortable" ).sortable();
